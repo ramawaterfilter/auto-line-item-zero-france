@@ -1,0 +1,27 @@
+{
+  "name": "auto-line-item-zero-france",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:agentation && wrangler dev src/dev.ts",
+    "build:agentation": "node scripts/build-agentation.mjs",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply auto-line-item-zero --local",
+    "db:migrate:remote": "wrangler d1 migrations apply auto-line-item-zero --remote",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260831.1",
+    "@types/node": "^24.13.4",
+    "agentation": "^3.0.2",
+    "esbuild": "^0.28.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.127.1"
+  }
+}

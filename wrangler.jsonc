@@ -1,0 +1,50 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "auto-line-item-zero-france",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-08-31",
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "auto-line-item-zero-france",
+			"database_id": "5208a648-b537-4220-ad17-2c41407339d1",
+			"migrations_dir": "migrations"
+		},
+		{
+			"binding": "auto_line_item_zero",
+			"database_name": "auto-line-item-zero-france",
+			"database_id": "5208a648-b537-4220-ad17-2c41407339d1",
+			"remote": true
+		}
+	],
+	"queues": {
+		"producers": [
+			{
+				"binding": "JOBS",
+				"queue": "auto-line-item-zero-france"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "auto-line-item-zero-france",
+				"max_batch_size": 5,
+				"max_batch_timeout": 2,
+				"max_retries": 5,
+				"dead_letter_queue": "auto-line-item-zero-france-dlq"
+			}
+		]
+	},
+	"vars": {
+    "GOOGLE_SERVICE_ACCOUNT_EMAIL": "auto-line-item-zero@auto-line-item-zero.iam.gserviceaccount.com",
+    "GOOGLE_SPREADSHEET_ID": "14Cq5cpjo-zqM6ZVBtGDjVHHYG3vOx0hr1wdVSm6xkDU",
+    "MAX_DATE_RANGE_DAYS": "60",
+    "ORDER_EDIT_STAFF_NOTE": "Auto-removed KokoCarb Cartridges-Subscription plan",
+    "SHOPIFY_API_KEY": "fdf5383385d788c88a7dd52ce1c23e92",
+    "SHOPIFY_API_VERSION": "2026-07",
+    "SHOPIFY_APP_URL": "https://auto-line-item-zero-france.phoxnixwaterfilter.workers.dev",
+    "SHOPIFY_SCOPES": "read_orders,read_products,write_order_edits",
+    "TARGET_VARIANT_IDS": "67655138050101, 67655020937269",
+    "TOKEN_ENCRYPTION_KEY": "OOjOk2yiDrGzWFi_h9b-Sb1D_zTtn3-33A66O8EnWEM"
+  },
+	
+}

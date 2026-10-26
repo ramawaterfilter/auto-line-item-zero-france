@@ -1,0 +1,9 @@
+node_modules/
+.shopify/
+.tmp/
+.wrangler/
+.dev.vars
+dist/
+.generated/
+coverage/
+*.log
